@@ -1,0 +1,64 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+void merge(int *l,int *r,int *arr)
+{
+ int i=0,j=0;
+ int k=0;
+ while(i<4 && j<3)
+ {
+   if(l[i]>r[j])  
+   {
+      
+      arr[k]=r[j];
+      k++;
+      j++;
+   }
+   else{
+      
+      arr[k]=l[i];
+      k++;
+      i++; 
+   }
+ }
+ while(i<4){
+     arr[k]=l[i];
+     i++;
+     k++;
+ }
+  while(j<3){
+     arr[k]=r[j];
+     j++;
+     k++;
+ }
+}
+int main() {
+  int n,m;
+  n=4,m=3;
+  int *arr,*l,*r;
+  arr=(int *)malloc(7*sizeof(int));
+   l=(int *)malloc(4*sizeof(int));
+    r=(int *)malloc(3*sizeof(int));
+  for(int i=0;i<7;i++)
+  {
+    cin>>*(arr+i);  
+  }
+  
+  for(int j=0;j<4;j++)
+  {
+     *(l+j)=*(arr+j); 
+     
+     
+  }
+  for(int j=4;j<7;j++)
+  {
+     *(r+j-4)=*(arr+j); 
+  }
+merge(l,r,arr);
+
+for(int j=0;j<7;j++)
+  {
+     cout<<*(arr +j); 
+  }
+    return 0;
+}
