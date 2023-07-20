@@ -1,0 +1,35 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+void swap(int &i,int &j){
+    int a=i;
+    i=j;
+    j=a;
+}
+int main() {
+   
+   int *arr;
+   arr=(int *)malloc(5*(sizeof(int)));
+   for(int i=0;i<5;i++){
+       cin>>*(arr+i);
+   }
+    for(int i=0;i<5-1;i++)
+   {
+     int min_index=i;
+     for(int j=i+1;j<5;j++)
+     {
+         if(arr[j]<arr[min_index]){
+            min_index=j;
+         }
+     }
+     swap(arr[min_index],arr[i]); 
+   }
+   for(int i=0;i<5;i++)
+   {
+       cout<<*(arr+i);
+       
+   }
+  
+
+    return 0;
+}
